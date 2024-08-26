@@ -1,0 +1,22 @@
+name: "Terraform Plan Summariser"
+description: "Reads terraform plan in json format and summarise it"
+
+inputs:
+  terraformPlanJson:
+    description: "Terraform form plan text in json format"
+    required: true
+
+outputs:
+  summarisedPlan:
+    description: "Terraform summarised plan"
+    value: ${{ steps.summariser.outputs.summarisedPlan }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Summarise terraform Plan
+      run: python3  ${{ github.action_path }}/terraform_summariser.py
+      id: summariser
+      shell: bash
+      env:
+        TERRAFORM_PLAN_JSON: ${{ inputs.terraformPlanJson }}
