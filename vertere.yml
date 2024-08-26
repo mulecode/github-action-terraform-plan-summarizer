@@ -1,0 +1,8 @@
+versioning:
+# After vertere is initialized, the initial-version property is ignored and can comment out.
+  initial-version: 1.0.0
+#  prefix: v
+# BUILD-SNAPSHOT | M | RC | RELEASE
+#  postfix: RC
+# MAJOR | MINOR | PATCH
+  incrementer: MINOR

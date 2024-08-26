@@ -1,0 +1,25 @@
+name: Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+
+  prepare_versioning:
+    name: Prepare Versioning
+    uses: mulecode/actions-workflow-templates/.github/workflows/workflow-versioning-prepare.yml@main
+    with:
+      configFilePath: vertere.yml
+
+  release:
+    name: Release version
+    uses: mulecode/actions-workflow-templates/.github/workflows/workflow-release.yml@main
+    needs:
+      - prepare_versioning
+    with:
+      changelogPath: CHANGELOG.md
+      nextVersion: ${{ needs.prepare_versioning.outputs.nextVersion }}
+    secrets:
+      githubToken: ${{ secrets.GITHUB_TOKEN }}
