@@ -1,3 +1,12 @@
+## 🚀 [1.0.1] - 12/04/2025
+
+### 🧰 Fixed
+
+- Fixed a bug that caused the script to fail when the `terraform plan`
+  command was not found in the system path.
+
+---
+
 ## 🚀 [1.0.0] - 26/08/2024
 
 ### ✅ New Features
