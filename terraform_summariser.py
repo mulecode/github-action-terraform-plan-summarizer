@@ -12,7 +12,7 @@ def parse_terraform_plan_json(plan_json: dict) -> tuple:
     destroyed_resources = []
     replaced_resources = []
 
-    for resource in plan_json['resource_changes']:
+    for resource in plan_json.get('resource_changes', []):
         action = resource['change']['actions']
         resource_id = resource['address']
 

@@ -5,4 +5,4 @@ versioning:
 # BUILD-SNAPSHOT | M | RC | RELEASE
 #  postfix: RC
 # MAJOR | MINOR | PATCH
-  incrementer: MINOR
+  incrementer: PATCH
